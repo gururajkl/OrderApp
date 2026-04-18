@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Readme.md" />
+  </Folder>
+  <Project Path="OrderApp.Tests/OrderApp.Tests.csproj" />
+  <Project Path="OrderApp/OrderApp.csproj" />
+</Solution>

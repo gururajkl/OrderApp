@@ -36,12 +36,19 @@ The application fetches available items asynchronously, allows users to input or
 
 ## Project Structure
 
-* `/Models` → Data models (Item, Order)
-* `/ViewModels` → MainViewModel (logic, validation, commands) and BaseViewModel (Which wraps INotifyPropertyChanged interface)
-* `/Views` → MainWindow, Loader (UI)
-* `/Services` → ApiService, MessageService
-* `/Commands` → RelayCommand implementation
-* `/Tests` → Unit tests for ViewModel logic
+### OrderApp (WPF Application)
+
+* `/Models` -> Data models (Item, Order)
+* `/ViewModels` -> MainViewModel (logic, validation, commands), BaseViewModel (INotifyPropertyChanged)
+* `/Views` -> MainWindow, Loader (UI)
+* `/Services` -> ApiService, MessageService
+* `/Commands` -> RelayCommand implementation
+* `/Styles` -> Reusable UI styles (e.g., TextBox validation styles)
+
+### OrderApp.Tests (Unit Tests)
+
+* Contains unit tests for ViewModel logic using xUnit and Moq
+
 
 ---
 
@@ -104,6 +111,7 @@ Validation errors are shown visually in the UI.
 * Used async/await for all API interactions.
 * Avoided business logic in code-behind (only UI behavior handled).
 * Structured ViewModel logic to be testable by abstracting dependencies (API and Message services), enabling effective unit testing using xUnit and Moq.
+* Extracted validation styles into a ResourceDictionary to promote reuse and maintain consistent UI behavior.
 
 ---
 

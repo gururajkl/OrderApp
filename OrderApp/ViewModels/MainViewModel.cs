@@ -102,7 +102,7 @@ public class MainViewModel : BaseViewModel, IDataErrorInfo
         _apiService = apiService;
         _messageService = messageService;
 
-        PlaceOrderCommand = new RelayCommand(PlaceOrder, CanPlaceOrder);
+        PlaceOrderCommand = new RelayCommand(ExecutePlaceOrder, CanExecutePlaceOrder);
 
         Items.Insert(0, new Item { Id = 0, Name = "Select an Item" });
         States.Insert(0, "Select a state");
@@ -115,13 +115,13 @@ public class MainViewModel : BaseViewModel, IDataErrorInfo
         await LoadItems();
     }
 
-    private bool CanPlaceOrder()
+    private bool CanExecutePlaceOrder()
     {
         return !IsSubmitting && SelectedItem.Id > 0 && Quantity.HasValue && Quantity.Value >= 1 && Quantity.Value <= 100
             && !string.IsNullOrEmpty(City) && City.Length <= 50 && SelectedState != "Select a state";
     }
 
-    private async Task PlaceOrder()
+    private async Task ExecutePlaceOrder()
     {
         try
         {
